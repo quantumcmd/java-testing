@@ -26,4 +26,12 @@ public class IntegerStudyTest {
         // assertTrue(condition) can be replaced with assertEquals(true, condition) i.e:
         // assertEquals(true, ocho.equals(eight));
     }
+
+    @Test
+    public void binaryStudy(){
+        Integer two = new Integer(2);
+
+        String people = "There are " + Integer.toBinaryString(two) + " types of people: Those who understand binary and those who don't";
+        assertEquals(2, two.intValue(), people);
+    }
 }
