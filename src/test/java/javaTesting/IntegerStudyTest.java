@@ -34,4 +34,10 @@ public class IntegerStudyTest {
         String people = "There are " + Integer.toBinaryString(two) + " types of people: Those who understand binary and those who don't";
         assertEquals(2, two.intValue(), people);
     }
+
+    @Test
+    public void minIntegerValue(){
+        int min = -2147483648;
+        assertEquals(min, Integer.MIN_VALUE);
+    }
 }
