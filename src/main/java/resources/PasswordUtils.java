@@ -7,7 +7,7 @@ import java.util.Random;
 
 public class PasswordUtils {
     private static final Random RANDOM = new SecureRandom();
-    private static final String ALPHABET = "0123456789ABCDEFGHIJKLMNOPQRSTYZ";
+    private static final String ALPHABET = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
     public static String generateSalt(){
         return generateSalt(8);
@@ -21,16 +21,17 @@ public class PasswordUtils {
         return new String(value);
     }
 
-    public static String generateSecurePassword(String password, String salt) throws NoSuchAlgorithmException{
+    public static String generateSecurePassword(String password, String salt){
         return hashedPassword(password, salt);
     }
 
-    public static String hashedPassword(String password, String salt) throws NoSuchAlgorithmException {
+    public static String hashedPassword(String password, String salt){
+        MessageDigest md;
         String result = "";
         try{
-            MessageDigest md = MessageDigest.getInstance("SHA-256");
-            md.update(password.getBytes());
-            result = md.digest().toString();
+            md = MessageDigest.getInstance("SHA-256");
+            md.update((password + salt).getBytes());
+            result = new String(md.digest());
         } catch (NoSuchAlgorithmException e) {
             System.out.println("ERROR: Invalid Hash Algorithm");
             System.exit(1);
@@ -39,6 +40,6 @@ public class PasswordUtils {
     }
 
     public static boolean verifyUserPassword(String passwordEntered, String userSalt, String securePassword){
-        return securePassword.equals(hashedPassword(passwordEntered, userSalt))
+        return securePassword.equals(hashedPassword(passwordEntered, userSalt));
     }
 }

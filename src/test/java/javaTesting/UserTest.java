@@ -10,9 +10,10 @@ public class UserTest {
 
     @Test
     public void userConstructed(){
-        User user = new User();
+        User user = new User("Thomas", "secret");
         assertTrue(user != null);
         assertEquals(user.getName(), "Thomas");
-        assertEquals(user.getPassword(), "secret");
+        // assertEquals(user.getPassword(), "secret");
+        assertTrue(user.verifyPassword("secret"));
     }
 }

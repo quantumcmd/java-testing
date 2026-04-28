@@ -13,23 +13,24 @@ public class User {
 
     public User(String name, String password){
         this.name = name;
-        this.password = password;
+        // this.password = password;
         this.salt = PasswordUtils.generateSalt();
+        this.password = PasswordUtils.hashedPassword(password, this.salt);
     }
 
     public String getName(){
         return name;
     }
 
-    public String getPassword(){
-        return password;
-    }
-
     public void setName(String name){
         this.name = name;
     }
 
+    public boolean verifyPassword(String passwordEntered){
+        return PasswordUtils.verifyUserPassword(passwordEntered, salt, password);
+    }
+
     public void setPassword(String password){
-        this.password = password;
+        this.password = PasswordUtils.hashedPassword(password, salt);
     }
 }
