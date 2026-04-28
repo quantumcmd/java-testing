@@ -1,8 +1,11 @@
 package DomainEntities;
 
+import resources.PasswordUtils;
+
 public class User {
     private String name;
     private String password;
+    private String salt;
 
     public User(){
         this("Thomas", "secret");
@@ -11,6 +14,7 @@ public class User {
     public User(String name, String password){
         this.name = name;
         this.password = password;
+        this.salt = PasswordUtils.generateSalt();
     }
 
     public String getName(){
