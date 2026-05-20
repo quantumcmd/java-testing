@@ -1,7 +1,7 @@
 # Prácticas de Testing con JUnit
 
 ## Descripción
-Este repositorio contiene el código y los commits correspondientes a las prácticas de los 13 vídeos de la serie sobre JUnit. Los commits reflejan el progreso continuo a lo largo del curso.
+Este repositorio contiene el código y los commits correspondientes a las prácticas de los 9 vídeos de la serie sobre JUnit. Los commits reflejan el progreso continuo a lo largo del curso.
 
 ## Notas de Configuración: JUnit 4 vs JUnit 5
 Durante las explicaciones de los vídeos se utiliza **JUnit 4**. Sin embargo, este proyecto ha sido configurado y desarrollado utilizando **JUnit 5 (Jupiter)** desde el inicio para aplicar los estándares más modernos de la industria.
